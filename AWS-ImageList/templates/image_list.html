@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<a href="/logout">Logout</a>
+{% if response_value %}
+<h1>{{ response_value }}</h1>
+{% endif %}
+<form action="/delete" method="POST">
+<table border="1">
+<tr>
+<th></th>
+<th>File name</th>
+<th>Last Modified (UTC)</th>
+<th>Size (bytes)</th>
+</tr>
+{% for key, value in files_list.iteritems() %}
+<tr>
+<td><input type="radio" name="file_to_delete" value="{{ key }}"></td>
+<td>{{ value[0] }}</td>
+{% if "\n" in value[1] %}
+<td>{{ value[1] }}</td>
+{% else %}
+<td><img src="{{ value[1] }}" height="200" width="300"/></td>
+{% endif %}
+<td>{{ value[2] }}</td>
+<td>{{ value[3] }} bytes</td>
+</tr>
+{% endfor %}
+</table>
+<input type="hidden" value="{{ bucket_name }}" name="bucket_name"/>
+<input type="hidden" value="{{quota }}" name="quota"/>
+<input type="submit" value="Delete File"/>
+</form>
+<h2>Upload New File</h2>
+<form action="/upload" method="POST" enctype="multipart/form-data">
+<input name="file_to_upload" type="file" accept="image/*" required>
+<input type="hidden" value="{{ bucket_name }}" name="bucket_name"/>
+<input type="hidden" value="{{quota }}" name="quota"/>
+<input type="submit" value="Upload File"/>
+</form>
+<h2>Download File</h2>
+<form action="/download" method="POST">
+<input type="text" name="file_to_download" required>
+<input type="hidden" value="{{ bucket_name }}" name="bucket_name"/>
+<input type="hidden" value="{{quota }}" name="quota"/>
+<input type="submit" value="Download File"/>
+</form>
+</body>
+</html>
