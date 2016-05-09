@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/display_pop" method="GET">
+Country: <input type="text" name="country" required>
+City: <input type="text" name="city" required>
+<input type="submit" value="Get Population">
+</form>
+<form action="/display_pop_within_range" method="GET">
+Pop Range 1: <input type="text" name="pop_range_1" required>
+Pop Range 2: <input type="text" name="pop_range_2" required>
+<input type="submit" value="Get Cities"/>
+</form>
+<form action="/display_pop_K" method="GET">
+Country: <input type="text" name="country" required>
+City: <input type="text" name="city" required>
+Limit: <input type="text" name="K" required>
+<input type="submit" value="Get Population">
+</form>
+<form action="/display_no_of_cities" method="GET">
+<input type="submit" value="Display No of cities group by country"/>
+</form>
+{% if display_pop_val %}
+{% for val in display_pop_val %}
+<h3>Population</h3>
+<div>{{ val }}</div>
+{% endfor %}
+{% endif %}
+{% if pop_range_val %}
+<table>
+{% for k, v in pop_range_val.iteritems() %}
+<tr><td>{{ k }}</td><td>{{ v }}</td></tr>
+{% endfor %}
+</table>
+{% endif %}
+
+{% if list_of_cities %}
+<table>
+{% for k, v in list_of_cities.iteritems() %}
+<tr><td>{{ k }}</td><td>{{ v }}</td></tr>
+{% endfor %}
+</table>
+{% endif %}
+{% if display_pop_K %}
+{% for item in display_pop_K %}
+<div>{{ item }}</div>
+{% endfor %}
+{% endof %}
+</body>
+</html>

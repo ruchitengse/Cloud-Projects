@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Main Page</title>
+</head>
+<body>
+<br>
+<h3>Get K Nearest Cities</h3>
+<form method="GET" name="cities" action="/k_nearest_cities">
+Country: <input type="text" name="country" id="country" required>
+Region: <input type="text" name="region" id="region" required>
+City: <input type="text" name="city" id="city" required>
+K: <input type="text" name="K" id="K" required>
+<input type="submit" value="Get K nearest cities"/>
+</form>
+<br>
+<h3>Get Cities Within N km</h3>
+<form method="GET" name="cities" action="/cities_within_a_distance">
+Country: <input type="text" name="country" id="country" required>
+Region: <input type="text" name="region" id="region" required>
+City: <input type="text" name="city" id="city" required>
+N: <input type="text" name="N" id="N" required>
+<input type="submit" value="Get cities within N km"/>
+</form>
+{% if cities %}
+<br><br><br>
+<center>
+<table>
+<tr>
+<th>City Name</th>
+<th>Distance in KM</th>
+</tr>
+{% for key, value in cities.iteritems() %}
+<tr>
+<td>{{ key }}</td>
+<td>{{ value }}</td>
+</tr>
+{% endfor %}
+</table>
+</center>
+{% endif %}
+{% if search_results %}
+<center>
+<h3>Search History</h3>
+<ul>
+{% for item in search_results %}
+<li>
+<a href="{{item}}">{{ item }}</a>
+</li>
+{% endfor %}
+</ul>
+</center>
+{% endif %}
+</body>
+</html>

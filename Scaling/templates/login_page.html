@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login to System</title>
+</head>
+<body>
+{% if msg %}
+<div>{{ msg }}</div>
+{% endif %}
+<form name="login" action="/login" method="POST">
+Username: <input type="text" name="username" required>
+Password: <input type="password" name="password" required>
+<input type="submit" value="Login"/>
+</form>
+Click <a href="/register">Here</a>  to Register!
+</body>
+</html>

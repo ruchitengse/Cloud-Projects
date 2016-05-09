@@ -1,0 +1,11 @@
+pip==8.0.2
+python-swiftclient
+python-keystoneclient
+urllib3
+pyOpenSSL
+certifi
+Flask
+Django
+cloudant==2.0.0b1
+couchdb
+django-sendfile

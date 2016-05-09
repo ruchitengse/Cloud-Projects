@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Python Starter Application - Upload/Download File</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<center>
+<h2>File Upload</h2>
+<form action="/file/upload">
+<table caption="File Upload/Download">
+<tr>
+<td>File to be Uploaded:</td>
+<td><input type="file" name="file_upload" required></td>
+</tr>
+<tr>
+<td></td>
+<td><input type="submit" name="submitbutton" value="Upload File to Bluemix"/></td>
+</tr>
+</table>
+</form>
+<h2>File Download</h2>
+<form action="/file/download">
+<table>
+<tr>
+<td>Enter File Name to download: </td>
+<td><input type="text" name="file_name" required/></td>
+</tr>
+<tr><td></td>
+<td><input type="submit" value="Download File"/></td>
+</tr>
+</table>
+</form>
+</center>
+</body>
+</html>

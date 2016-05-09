@@ -1,0 +1,10 @@
+---
+applications:
+- name: BlueDrive
+- path: .
+  memory: 512M
+  instances: 1
+  domain: mybluemix.net
+  name: BlueDrive
+  host: bluedrive
+  disk_quota: 512M

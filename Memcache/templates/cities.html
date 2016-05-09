@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>List of cities</title>
+</head>
+<body>
+<table>
+{% for key, value in cities.iteritems() %}
+<tr>
+<td>{{ key }}</td>
+<td>{{ value }}</td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>

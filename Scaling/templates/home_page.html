@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Home Page</title>
+</head>
+<body>
+<a href="/logout">Logout</a>
+<div>Welcome {{ username }}</div>
+<!--  Show all images posted by all user with comments and a delete button only for the files submitted by this user -->
+<form action="/upload_image" method="POST" enctype="multipart/form-data">
+<input type="hidden" name="username" value="{{ username }}"/>
+<input type="file" name="file_name" required/>
+<input type="submit" value="Upload Image"/>
+</form>
+{% if image_info %}
+{% for item in image_info['Items'] %}
+{% set image_id = item['id'] %}
+{% set posted_by = item['username'] %}
+<div>Image posted by: {{ posted_by }}</div>
+<div><img src="{{ item['link']}}" height="40px" width="40px"/></div>
+{% if username == posted_by %}
+<a href="/delete_image?image_id={{image_id}}&username={{username}}">Delete Image</a>
+{% endif %}
+{% if item.comments %}
+<br/>
+Comments:
+{% for comment in item['comments'] %}
+<div>Posted By: {{ comment['username'] }}</div>
+<div>{{ comment['comment'] }}</div>
+{% endfor %}
+{% endif %}
+<form action="/post_comments" method="POST">
+<input type="text" name="comment" required/>
+<input type="hidden" name="username" value="{{ username }}"/>
+<input type="hidden" name="posted_by" value="{{ posted_by }}"/>
+<input type="hidden" name="image_id" value="{{ image_id }}"/>
+<input type="submit" value="Post Comment"/>
+</form>
+{% endfor %}
+{% endif %}
+</body>
+</html>
