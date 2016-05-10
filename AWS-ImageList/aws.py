@@ -14,8 +14,7 @@ import hashing
 class AWS:
     
     def aws_connect_to_bucket(self, bucket='cloud-image-store'):
-        kwargs = {'aws_access_key_id':'AKIAIRAB5ZYWDZMT3PXQ', 'aws_secret_access_key':'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', 'region_name':'us-west-2'}
-        self.aws_resource = boto3.resource('s3', **kwargs)
+        self.aws_resource = boto3.resource('s3')
         self.bucket = self.aws_resource.Bucket(bucket)
         exists = True;
         try:

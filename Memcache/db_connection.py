@@ -7,7 +7,7 @@ import MySQLdb
 class DatabaseConnection:
     
     def __init__(self):
-        self.connection = MySQLdb.connect(host="clouddatabase.cmac8hwmegyk.us-west-2.rds.amazonaws.com",user="ruchitengse",passwd="cloudpassword",db="cities",port=3306)
+        self.connection = MySQLdb.connect(host="",user="",passwd="",db="cities",port=3306)
         self.cursor = self.connection.cursor()
     
     def get_latitude_longitude(self, country, region, city):

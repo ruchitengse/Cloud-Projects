@@ -8,7 +8,7 @@ import MySQLdb
 class MySQL_DB:
     
     def __init__(self):
-        self.connection = MySQLdb.connect(host="user-creds.cmac8hwmegyk.us-west-2.rds.amazonaws.com",user="ruchi",passwd="ruchi123",db="users",port=3306)
+        self.connection = MySQLdb.connect(host="",user="",passwd="",db="users",port=3306)
         print self.connection
     
     def disconnect_from_mysql_db(self):

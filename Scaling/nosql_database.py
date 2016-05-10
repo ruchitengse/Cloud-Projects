@@ -7,8 +7,7 @@ import boto3
 class NoSQL_DB:
     
     def __init__(self):
-        kwargs = {'endpoint_url': 'https://dynamodb.us-west-2.amazonaws.com','aws_access_key_id':'AKIAIRAB5ZYWDZMT3PXQ', 'aws_secret_access_key':'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', 'region_name':'us-west-2'}
-        connection = boto3.resource('dynamodb', **kwargs)
+        connection = boto3.resource('dynamodb')
         self.table = connection.Table('images')
         
     def insert_image(self, image_json):

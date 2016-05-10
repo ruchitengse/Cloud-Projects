@@ -9,8 +9,7 @@ import config
 class AWS:
     
     def __init__(self):
-        kwargs = {'aws_access_key_id':'AKIAIRAB5ZYWDZMT3PXQ', 'aws_secret_access_key':'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', 'region_name':'us-west-2'}
-        self.aws_resource = boto3.resource('s3', **kwargs)
+        self.aws_resource = boto3.resource('s3')
         self.bucket = self.aws_resource.Bucket(config.BUCKET_NAME)
     
     def upload_file(self, file_path, file_name):

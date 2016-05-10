@@ -108,7 +108,7 @@ class CloudantDB:
         
         self.file_upload_path = os.path.dirname(__file__) + "\\templates\\file_downloads"
         self.URL_TO_DOWNLOAD = "https://f0ebf985-0718-42ab-81c8-d9a4749781fe-bluemix.cloudant.com"
-        self.client = Cloudant('f0ebf985-0718-42ab-81c8-d9a4749781fe-bluemix', 'ac3a0938a28cc22062aff710e67f7e4d782b822ed41c11e7bc5aec5b4a4b10e1', account='f0ebf985-0718-42ab-81c8-d9a4749781fe-bluemix')
+        self.client = Cloudant()
         self.client.connect();
         self.session = self.client.session();
         self.database = self.client['files_data'];
